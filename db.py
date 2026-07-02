@@ -5,7 +5,7 @@ def get_connection():
         host="localhost",
         database="study_tracker",
         user="postgres",
-        password="501050@Mk"
+        password="Mohit@Mk"
     )
     return connection
 
