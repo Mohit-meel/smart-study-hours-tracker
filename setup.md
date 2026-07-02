@@ -9,7 +9,7 @@
 ## Steps to Run
 
 1. Clone the repository:
-   git clone <repository-url>
+   git clone https://github.com/Mohit-meel/smart-study-hours-tracker.git
 
 2. Install the required package:
    pip install -r requirements.txt
