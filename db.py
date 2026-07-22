@@ -105,3 +105,27 @@ def search_record(name):
     conn.close()
 
     return records
+
+
+def dashboard_data():
+    conn = get_connection()
+    cur = conn.cursor()
+
+    cur.execute("SELECT COUNT(*) FROM study_records")
+    total_records = cur.fetchone()[0]
+
+    cur.execute("SELECT COALESCE(SUM(hours),0) FROM study_records")
+    total_hours = cur.fetchone()[0]
+
+    cur.execute("""
+        SELECT subject, SUM(hours)
+        FROM study_records
+        GROUP BY subject
+    """)
+
+    subject_data = cur.fetchall()
+
+    cur.close()
+    conn.close()
+
+    return total_records, total_hours, subject_data
